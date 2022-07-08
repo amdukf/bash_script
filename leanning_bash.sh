@@ -103,4 +103,47 @@ comment
 
 #################
 
-ls @al 1>file.txt 2>error.txt
+
+# ls @al 1>file.txt 2>error.txt # This will return the error and output in a seprated file.
+
+<<comment
+In this method , ew send a command or anything else in another file
+
+text="dude"
+export text
+./secondtext.sh
+
+comment
+
+# for comparing two string in bash , we use /< and />
+
+<<comment
+concat two strings
+
+str1="We welcome you"
+
+str2=" on linux"
+
+str3="$str1$str2"
+
+echo $str3
+comment
+
+<<comment
+
+read st1
+
+echo ${st1^^} # This is for convert the string to Uppercase and ^ will convert the string in lowercase , ^l will convert just first charecter to Uppercase.
+comment
+
+#############
+
+<<comment
+read st1
+read st2
+
+echo $[ st1+st2 ] # or $(( )))
+comment
+
+
+

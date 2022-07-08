@@ -64,7 +64,43 @@ comment
 
 # for
 
+<<comment
 for i in {0..20}
 do
 	echo $i
 done
+comment
+# we can write for , in this way like cpp
+
+<<comment
+for (( i=0 ; i<=5 ; i++ ))
+do
+	echo $i
+done
+comment
+
+#################
+
+# we can get input in the command line in this way ;
+# echo $1 $2 $3   # this will give input near the executing file name 
+
+# or we write a array example
+
+<<comment
+arg=("$@")
+echo $@
+echo $# # This will print the array length
+comment
+
+# read a file
+
+<<comment
+while read line
+do
+	echo "$line"
+done < "${1:-/dev/stdin}"
+comment
+
+#################
+
+ls @al 1>file.txt 2>error.txt

@@ -145,5 +145,134 @@ read st2
 echo $[ st1+st2 ] # or $(( )))
 comment
 
+# Array
 
+<<comment
+distro=('ubuntu' 'mint' 'pop')
+
+unset distro[1] # This will delete the index
+distro[1]='Arch' # This add a index
+
+echo ${distro[@]}
+
+echo ${#distro[@]} # This will print the length
+
+echo ${!distro[@]} # This will print the index of the arrays
+comment
+
+##################
+
+# Functions
+
+<<comment
+function funcplus()
+{
+	echo $(( $1  $2 ))
+}
+
+funcplus 10 11
+comment
+
+####################
+
+# Create a script to check if a folder in directory exist or not
+
+<<comment
+echo "Enter your folder name"
+read dir
+if [ -d "dir"]
+then
+	echo "$dir exists"
+else
+	echo "$dir not exists"
+fi
+comment
+
+# for checking file is exist or not , we should use [[ -f "$filename" ]]
+
+# for reading file
+
+
+# echo "Enter your file your wanna read"
+# read dir
+
+<<comment
+if [[ -f "dir"]]
+then
+	while IFS= read -r line
+	do
+		echo "$line"
+	done < $dir
+else
+	echo "$dir not exists"
+fi
+comment
+
+######
+
+# curl
+
+<<comment
+url="link"
+curl ${url} -o Downloadedfile # or we can do this => curl ${url} > outputfile
+curl -I ${url} # gives some information about the Downloaded file
+comment
+
+###############
+
+# select
+
+<<comment
+select distro in ubuntu mint manjaro Arch redhat
+do
+	echo "your distro is $distro"
+done	
+comment
+
+###############
+
+<<comment
+echo "Enter something to continue"
+
+while ( true )
+do
+	read -t 3 -n 1
+if [ $? = 0 ]
+then
+	echo "your terminated the script"
+	exit
+fi
+
+done
+comment
+
+###################
+
+# with inotify we can see the changes that happen in a file
+
+<<comment
+mkdir -p /temp/newfolder
+inotifywait -m /temp/newfolder
+comment
+
+#############
+
+# grep -i word_we_wanna_find filename (-i for case sensitive , -n for line number , -c for count word and -v for searchng all of the things except the seected word)
+
+##############
+
+# awk
+
+<<comment
+
+awk '/linux/ {print $3,$4}' $filename
+the bottom command will print the lines that have linux in them and actually print the 3 and 4 columns in the text (linux ubuntu 2000 vmlinux) will print 2000 and vmlinux
+
+
+# sed
+sed 's/i/I/g' $filename # this will change all of the small i to capital I and change all of them because global (g) , we can actually change the word to another word.
+sed -i will modified our file and we can change
+comment
+
+# we can debug our bash script with => bash -x ./filename.sh
 

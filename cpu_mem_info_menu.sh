@@ -1,6 +1,6 @@
 #! /bin/bash
 
-cpu=$(cat /proc/cpuinfo | grep processor)
+cpu=$(cat /proc/cpuinfo | grep -c processor)
 mem=$(free -h | awk 'NR == 2 {print $2}')
 swap=$(free -h | awk 'NR == 3 {print $2}')
 

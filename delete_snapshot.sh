@@ -22,7 +22,7 @@ for ((i=1;i<=time_rate;i++)); do
         if [ $past_date == $current_date ]
         then
                 echo "$SNAPSHOT_ID should be deleted"
-                curl "https://napi.arvancloud.ir/ecc/v1/regions/$REGION/volumes/$SNAPSHOT_ID/snapshot" -X 'DELETE'   -H 'authorization: apikey fc50e80c-77e2-5a2e-9c7b-ece39b3fc532'
+                curl "https://napi.arvancloud.ir/ecc/v1/regions/$REGION/volumes/$SNAPSHOT_ID/snapshot" -X 'DELETE'   -H 'authorization: apikey xxxxxxxxxxxxxxxxxxxxx'
                 #curl --location --request DELETE "https://napi.arvancloud.ir/ecc/v1/regions/$REGION/volumes/$SNAPSHOT_ID/snapshot" --header "Authorization: apikey fc50e80c-77e2-5a2e-9c7b-ece39b3fc53"
         else
                 echo "$SNAPSHOT_ID should not be deleted today"
